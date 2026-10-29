@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--
+    ========================================================================
+    作業名稱：HW07 景點報導（CSS 外部樣式表分離實作）
+    檔案結構說明：
+    HW07_D1422211/
+    ├── HW07_D1422211.html (本檔案，位於根目錄)
+    └── css/
+        └── hw07.css (外部 CSS 樣式表)
+    ========================================================================
+-->
+<html lang="zh-Hant">
+<head>
+    <!-- 網頁基礎資訊與元資料 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="台中公園深度報導：結合百年歷史沿革、重點景點比較表、建議散步路線、照片影音、Google 地圖導航與外部 CSS 樣式架構。">
+    <meta name="author" content="李友書 (學號：D1422211)">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph 社群分享資訊 -->
+    <meta property="og:title" content="台中公園深度探索報導：百年綠意與古蹟風華巡禮 (HW07)">
+    <meta property="og:description" content="探索台中市歷史最悠久的都市公園，介紹湖心亭、望月亭、更樓等文化資產與景點比較。">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+
+    <title>台中公園深度探索報導：百年綠意與古蹟風華巡禮 (HW07)</title>
+
+    <!--
+        ========================================================================
+        方法三：載入外部 CSS 樣式表 (External Stylesheet)
+        相對路徑說明：
+        - 本 HTML 檔案位於專案根目錄。
+        - href="css/hw07.css" 表示從目前 HTML 所在位置出發，進入同層的 css 子資料夾，並讀取 hw07.css。
+        - rel="stylesheet" 宣告此連結為樣式表資源。
+        - <link> 為空元素（Void Element），無須結束標籤。
+        ========================================================================
+    -->
+    <link rel="stylesheet" href="css/hw07.css">
+</head>
+<body>
+
+    <!--
+      頁首區塊（<header>）：
+      包含本網頁唯一的主標題（<h1>）以及作者資訊與整理日期。
+      id="top" 作為「回到頁首」錨點跳轉的起點目標。
+    -->
+    <header id="top">
+        <h1>台中公園百年風華：城市中心的歷史與綠意巡禮</h1>
+        <p><strong>報導作者：</strong>李友書（學號：D1422211） | <strong>整理日期：</strong>2026 年 10 月 29 日</p>
+    </header>
+
+    <!--
+      頁內目錄導覽區塊（<nav>）：
+      使用語意化標籤 <nav> 包覆章節目錄。
+      目錄呈現卡片式視覺，並透過 class="nav-list" 於外部 CSS 中控制項目間距。
+    -->
+    <nav>
+        <h2>報導章節目錄與導覽</h2>
+        <ul class="nav-list">
+            <li><a href="#history">一、公園簡介與歷史沿革</a></li>
+            <li><a href="#features">二、園區重點特色與景點</a></li>
+            <li><a href="#attractions-table">三、公園熱門景點比較表</a></li>
+            <li><a href="#walking-route">四、建議散步路線與體驗</a></li>
+            <li><a href="#media-gallery">五、影音紀錄與照片展示</a></li>
+            <li><a href="#location-map">六、地理位置與 Google 地圖導航</a></li>
+            <li><a href="#reminders-aside">七、參訪補充提醒與注意事項 (Aside)</a></li>
+            <li><a href="#references">八、參考資料與來源聲明</a></li>
+        </ul>
+    </nav>
+
+    <!--
+      主要內容區塊（<main> 與 <article>）：
+      <main> 代表網頁獨特的主體內容，<article> 封裝獨立成篇的報導文章。
+    -->
+    <main>
+        <article>
+
+            <!-- 章節一：公園簡介與歷史沿革 -->
+            <section id="history">
+                <h2>一、公園簡介與歷史沿革</h2>
+                
+                <h3>1. 地理位置與創立背景</h3>
+                <p>
+                    台中公園位於台中市北區（自由路、雙十路與公園路交會處），創立於日治時期的 1903 年 10 月 28 日，佔地約 32,889 坪，是台中市歷史最悠久且最具代表性的都市公園。公園早期稱為「中之島公園」，是台灣中部首座配合現代化都市計畫所規劃興建的公共綠地，百年來一直扮演著「台中之心」與都市綠肺的重要角色。
+                </p>
+
+                <h3>2. 縱貫鐵路通車與湖心亭由來</h3>
+                <p>
+                    園內最具象徵意義的地標——湖心亭，興建於 1908 年（明治 41 年），當時係為慶祝台灣縱貫鐵路全線通車典禮，特別於日月湖中興建之「御休憩所」（貴賓休息所）。通車大典結束後，該建築被指定為永久紀念物並妥善保存。
+                    <!--
+                        ========================================================================
+                        行內樣式遷移點 1：
+                        原 HW06 的 style="..." 宣告已移除，改套用外部 CSS 類別 class="reading-focus"。
+                        對應樣式：背景色 #fef08a、暗黃文字色 #854d0e、圓角與內距。
+                        ========================================================================
+                    -->
+                    戰後曾更名為「中正亭」，直到 2000 年順應歷史原貌正名為湖心亭，並登錄為 <mark class="reading-focus">台中市市定古蹟</mark>，其優美的雙尖頂木造結構亦成為台中市府徽與門牌的核心意象。
+                </p>
+
+                <h3>3. 歷史演變與文化資產</h3>
+                <p>
+                    除了日治時期的建築遺構外，台中公園亦保存了清領時期的台灣府城北門（坎孚門）城樓遺跡「望月亭」，以及全台碩果僅存的中式「更樓」。第二次世界大戰後，公園曾改名為「中山公園」，直到 2000 年 4 月台中市政府順應民意與歷史脈絡，正式復名為「台中公園」。園內林木高聳茂密，擁有多株百年茄苳與爪哇合歡等珍貴老樹，是一座融合深厚人文歷史與豐富生態價值的城中綠洲。
+                </p>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節二：園區重點特色與景點 -->
+            <section id="features">
+                <h2>二、園區重點特色與景點</h2>
+                
+                <h3>園區自然與人文景觀項目</h3>
+                <p>台中公園集結了多項跨越不同時代的歷史文化資產與自然景觀，主要重點特色如下：</p>
+
+                <ul>
+                    <li><strong>日月湖與湖心亭：</strong>位於公園核心的水域，湖心亭為雙併式尖頂水上木造涼亭，是台中市最具代表性的市民記憶與文化標誌。</li>
+                    <li><strong>砲台山（大墩孤丘）：</strong>海拔 89 公尺，為舊台中市區早期最高點，清領時期曾在此架設砲台，園區內立有抗日勝利紀念碑。</li>
+                    <li><strong>望月亭（城門樓遺跡）：</strong>1903 年將清代臺灣府城北門（坎孚門）城樓遷建至園內，亭內懸掛清光緒年間知縣黃承乙所題「曲奏迎神」匾額，為園內最古老的文物。</li>
+                    <li><strong>台中更樓：</strong>1983 年由私人宅邸遷移至公園保存，為台灣目前唯一保存完好的中式傳統歇山頂更樓建築。</li>
+                    <li><strong>百年老樹與生態池：</strong>園內擁有百年爪哇合歡、茄苳與樟樹群，近年配合大公園計畫導入雨水花園與淨化池，環境生態極為豐富。</li>
+                </ul>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節三：公園熱門景點比較表 -->
+            <section id="attractions-table">
+                <h2>三、公園熱門景點比較表</h2>
+                
+                <h3>核心歷史建築與地標對照</h3>
+                <p>以下整理台中公園內四大核心歷史景點之建立年份、文化資產身分及建築文化特色：</p>
+
+                <!--
+                  表格完全移除 HTML border 屬性，由外部 CSS 的 table, th, td 規則設定邊框與背景。
+                -->
+                <table>
+                    <caption>台中公園核心歷史景點比較表</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">景點名稱</th>
+                            <th scope="col">建立 / 遷建年份</th>
+                            <th scope="col">文化資產身分</th>
+                            <th scope="col">主要建築與歷史特色</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">湖心亭（日月湖）</th>
+                            <td>1908 年（明治 41 年）</td>
+                            <td>台中市市定古蹟</td>
+                            <td>雙併式尖頂水上涼亭，為紀念縱貫鐵路全線通車而建，為台中市徽意象來源。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">望月亭（臺灣府城門樓）</th>
+                            <td>1903 年遷建至公園</td>
+                            <td>歷史建築 / 古蹟遺跡</td>
+                            <td>原為清領時期臺灣府城北門（坎孚門）城樓，亭內藏有 1891 年「曲奏迎神」古匾。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">台中更樓</th>
+                            <td>1983 年遷建至公園</td>
+                            <td>歷史紀念建築物</td>
+                            <td>台灣現存唯一之中式更樓，原為台中富商林仔密宅邸之歇山頂報時瞭望樓。</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">砲台山（大墩孤丘）</th>
+                            <td>1895 年前即存在（天然丘陵）</td>
+                            <td>歷史地理遺跡</td>
+                            <td>海拔 89 公尺，舊名「大墩」，為台中市區發源地之一，山頂立有抗日勝利紀念碑。</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節四：建議散步路線與體驗 -->
+            <section id="walking-route">
+                <h2>四、建議散步路線與體驗</h2>
+                
+                <h3>90 分鐘深度走訪建議步驟</h3>
+
+                <!--
+                    ========================================================================
+                    行內樣式遷移點 2：
+                    原 HW06 的 style="..." 綠色卡片提示框已移除，改套用外部 CSS 類別 class="route-note"。
+                    對應樣式：淡綠背景 #f0fdf4、深綠左邊框 #16a34a、圓角與文字顏色。
+                    ========================================================================
+                -->
+                <p class="route-note">
+                    <strong>💡 作者經驗提示：</strong> 以下散步路線為李友書根據親身走訪經驗規劃之 90 分鐘深度歷史綠意巡禮，適合於清晨或傍晚時段進行。
+                </p>
+
+                <ol>
+                    <li><strong>第一站（正門起點）：</strong>由公園路與自由路口的正門入口進入，順著林蔭步道欣賞百年樟樹群，感受古木參天的芬多精體驗。</li>
+                    <li><strong>第二站（歷史探訪）：</strong>登上「砲台山」觀察大墩發源地遺跡，並續行至「望月亭」細細品味清代城樓木架構與「曲奏迎神」古匾。</li>
+                    <li><strong>第三站（建築巡禮）：</strong>前往公園東側欣賞「台中更樓」，觀察閩南傳統歇山頂與打更瞭望台結構之建築巧思。</li>
+                    <li><strong>第四站（日月湖漫遊）：</strong>前往日月湖畔，可選擇租借划船近距離親近湖心亭，或沿著湖畔步道拍攝湖心亭倒影，完成悠閒的公園之旅。</li>
+                </ol>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節五：影音紀錄與照片展示 -->
+            <section id="media-gallery">
+                <h2>五、影音紀錄與照片展示</h2>
+
+                <h3>歷史建築影像展示</h3>
+                <figure>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92%E6%B9%96%E5%BF%83%E4%BA%AD02.jpg/800px-%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92%E6%B9%96%E5%BF%83%E4%BA%AD02.jpg" alt="台中公園日月湖上的市定古蹟湖心亭景色，呈現紅色屋頂與雙尖頂木造結構" width="480">
+                    <figcaption>
+                        圖一：台中公園日月湖與市定古蹟湖心亭景致。<br>
+                        （圖片來源：<a href="https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92%E6%B9%96%E5%BF%83%E4%BA%AD02.jpg" target="_blank">維基共享資源 Wikimedia Commons - Kofyo 攝影，採用 CC BY-SA 4.0 授權</a>）
+                    </figcaption>
+                </figure>
+
+                <h3>園區風貌影片紀錄</h3>
+                <!-- 使用外部 CSS 的 .media-container 類別進行自適應 16:9 比例包覆 -->
+                <figure>
+                    <div class="media-container">
+                        <iframe src="https://www.youtube.com/embed/zQDy-bXqcWE" title="台中公園影片：夏日的台中公園午後" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <figcaption>
+                        影片一：夏日的台中公園午後景象導覽。<br>
+                        若瀏覽器無法直接播放上方內嵌影片，請點擊開啟 <a href="https://www.youtube.com/watch?v=zQDy-bXqcWE" target="_blank">YouTube 原始影片連結：夏日的台中公園午後</a>。（影片來源：YouTube 頻道「深夜a瞬阿貓」）
+                    </figcaption>
+                </figure>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節六：地理位置與 Google 地圖導航 -->
+            <section id="location-map">
+                <h2>六、地理位置與 Google 地圖導航</h2>
+                
+                <h3>公園地址與地圖資訊</h3>
+                <p><strong>公園官方地址：</strong>404 臺中市北區新興里雙十路一段 65 號</p>
+                <p>台中公園位處市中心交通樞紐，鄰近台中火車站、一中商圈與台中日出宮原眼科，步行或搭乘大眾運輸均十分便利。</p>
+
+                <figure>
+                    <div class="media-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.891157121703!2d120.68112137604505!3d24.143961178398433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d6b9b1624e5%3A0x104e57f0c891d03b!2z6Ie65Lit5YWs5ZyS!5e0!3m2!1szh-TW!2stw!4v1700000000000!5m2!1szh-TW!2stw" title="台中公園 Google 地圖位置" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <figcaption>
+                        地圖一：台中公園地理位置示意圖。<br>
+                        點擊開啟 <a href="https://maps.google.com/?cid=1174973244459044923" target="_blank">Google 地圖完整地標連結：臺中公園</a>。（資料來源：Google Maps）
+                    </figcaption>
+                </figure>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+            <!-- 章節七：參訪補充提醒與注意事項（語意化標籤 <aside>） -->
+            <!-- 外部 CSS 使用 ID 選擇器 #reminders-aside 美化黃色邊框與卡片 -->
+            <aside id="reminders-aside">
+                <h3>七、參訪補充提醒與注意事項 (Aside 補充區塊)</h3>
+                <p>為了讓您的旅程更加順暢愉快，參訪台中公園時請留意以下事項：</p>
+
+                <ul>
+                    <li><strong>開放時間：</strong>公園為 24 小時免費開放之公共空間；日月湖划船服務開放時間通常為每日 09:00 至 18:00。</li>
+                    <li><strong>水域安全：</strong>日月湖水深危險，湖畔賞景或划船時請注意自身與隨行兒童安全，嚴禁下水游泳。</li>
+                    <li><strong>古蹟保護：</strong>望月亭、更樓與湖心亭皆為重要文化資產，請勿攀爬、刻字或破壞建築本體。</li>
+                    <li><strong>環境衛生與生態：</strong>請勿隨意餵食野生鴿子與湖中魚鴨，隨手將垃圾帶走，共同維護公園環境。</li>
+                </ul>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </aside>
+
+            <!-- 章節八：參考資料與來源聲明 -->
+            <section id="references">
+                <h2>八、參考資料與來源聲明</h2>
+                
+                <h3>文字、影像與地圖資料來源</h3>
+                <p>本報導網頁文字整理、照片、影片與地圖素材均來自以下公開資料與授權來源：</p>
+                
+                <ul>
+                    <li><strong>文字參考來源一：</strong>維基百科條目「臺中公園」，網址：<a href="https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E5%85%AC%E5%9C%92" target="_blank">https://zh.wikipedia.org/zh-tw/臺中公園</a></li>
+                    <li><strong>文字參考來源二：</strong>財團法人主婦聯盟環境保護基金會「綠人導覽：森之歌老故事台中公園人文生態解說」，網址：<a href="https://www.huf.org.tw/event/content/1229" target="_blank">https://www.huf.org.tw/event/content/1229</a></li>
+                    <li><strong>照片授權來源：</strong>Wikimedia Commons 專案相片「File:台中公園湖心亭02.jpg」，網址：<a href="https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E4%B8%AD%E5%85%AC%E5%9C%92%E6%B9%96%E5%BF%83%E4%BA%AD02.jpg" target="_blank">https://commons.wikimedia.org/wiki/File:台中公園湖心亭02.jpg</a></li>
+                    <li><strong>影片授權來源：</strong>YouTube 平台影片「夏日的台中公園午後」，頻道創作者「深夜a瞬阿貓」，網址：<a href="https://www.youtube.com/watch?v=zQDy-bXqcWE" target="_blank">https://www.youtube.com/watch?v=zQDy-bXqcWE</a></li>
+                    <li><strong>地圖授權來源：</strong>Google Maps 地標與導航服務「臺中公園」，網址：<a href="https://maps.google.com/?cid=1174973244459044923" target="_blank">https://maps.google.com/?cid=1174973244459044923</a></li>
+                </ul>
+
+                <!--
+                    ========================================================================
+                    行內樣式遷移點 3：
+                    原 HW06 的 style="..." 宣告已移除，改套用外部 CSS 類別 class="report-disclaimer"。
+                    對應樣式：display: block、灰階文字色 #6b7280、虛線頂部框線與內距。
+                    ========================================================================
+                -->
+                <small class="report-disclaimer">
+                    聲明：本網頁為課堂 HTML5 與 CSS 基礎實作練習作業，非台中公園官方網站。
+                </small>
+
+                <a href="#top" class="back-to-top">▲ 回到頁首</a>
+            </section>
+
+        </article>
+    </main>
+
+    <!--
+      頁尾區塊（<footer>）：
+      包含頁內回到頁首連結與版權宣告。
+    -->
+    <footer>
+        <p><a href="#top" class="back-to-top">▲ 回到頂端頁首</a></p>
+        <p>版權所有 &copy; 2026 台中公園單頁報導練習 (HW07) | 作者：李友書 (學號：D1422211)</p>
+    </footer>
+
+</body>
+</html>
